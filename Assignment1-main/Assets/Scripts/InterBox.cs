@@ -1,11 +1,12 @@
+using System.Net;
 using TMPro;
 using UnityEngine;
 
 public class InterBox : MonoBehaviour
 {
     public GameObject oven;
-    public GameObject bread;
-    public GameObject pita;
+    public GameObject button;
+    public GameObject button2;
 
     public TMP_Text text1; 
     public TMP_Text text2;
@@ -17,6 +18,8 @@ public class InterBox : MonoBehaviour
     {
         text1.gameObject.SetActive(true);
         text2.gameObject.SetActive(false);
+        button.SetActive(false);
+        button2.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -55,8 +58,9 @@ public class InterBox : MonoBehaviour
     private void StartOven()
     {
         oven.SetActive(true);
-        bread.SetActive(true);
-        pita.SetActive(true);
+        button.SetActive(true);
+        button2.SetActive(true);
+
         Debug.Log("Oven ON: Cooking burgers");
 
     }

@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Button : MonoBehaviour
+public class Button_Pita : MonoBehaviour
 {
 
     public GameObject button;
-    public GameObject bread;
+    public GameObject pita;
     public GameObject player;
 
     public ParticleSystem fire;
-    public float cookTime = 5f;
+    public float cookTime = 10f;
 
     public UnityEvent onPress;
     public UnityEvent onRelease;
@@ -29,7 +29,6 @@ public class Button : MonoBehaviour
     {
         sound = GetComponent<AudioSource>();
         cookingsound = GetComponent<AudioSource>();
-
         isPressed = false;
 
         startPos = button.transform.localPosition; //start position of the red button
@@ -78,7 +77,6 @@ public class Button : MonoBehaviour
             cookingsound.Play(); // cooking sound
         }
 
-
         // Wait for cooking time
         yield return new WaitForSeconds(cookTime);
 
@@ -95,6 +93,6 @@ public class Button : MonoBehaviour
 
 
         // Show bread
-        bread.SetActive(true);
+        pita.SetActive(true);
     }
 }
