@@ -86,12 +86,6 @@ public class Button_Pita : MonoBehaviour
             fire.Stop();
         }
 
-        if (sound != null)
-        {
-            cookingsound.Play();
-        }
-
-
         // Show bread
         pita.SetActive(true);
     }

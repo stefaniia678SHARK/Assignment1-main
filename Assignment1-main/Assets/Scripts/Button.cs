@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -10,6 +11,9 @@ public class Button : MonoBehaviour
     public GameObject button;
     public GameObject bread;
     public GameObject player;
+    public GameObject objects;
+    public GameObject money;
+    public Transform moneySpawnPoint;
 
     public ParticleSystem fire;
     public float cookTime = 5f;
@@ -19,17 +23,14 @@ public class Button : MonoBehaviour
 
     Vector3 startPos;
 
-    AudioSource sound;
-    AudioSource cookingsound;
 
     bool isPressed;
+    private bool moneySpawned = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        sound = GetComponent<AudioSource>();
-        cookingsound = GetComponent<AudioSource>();
-
         isPressed = false;
 
         startPos = button.transform.localPosition; //start position of the red button
@@ -42,9 +43,9 @@ public class Button : MonoBehaviour
             button.transform.localPosition = startPos + Vector3.down * 0.02f;
             player = other.gameObject;
             onPress.Invoke();
-            sound.Play();
             isPressed = true;
             Debug.Log("Button Pressed");
+            MusicManager.instance.PlaySound("ButtonClick");
         }
     }
 
@@ -62,6 +63,13 @@ public class Button : MonoBehaviour
     public void Cook()
     {
         StartCoroutine(CookRoutine());
+
+        //spawn the money
+        if (moneySpawned)
+
+        {
+            objects.SetActive(true);
+        }
     }
 
     IEnumerator CookRoutine()
@@ -71,12 +79,8 @@ public class Button : MonoBehaviour
             fire.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             fire.Play();
             Debug.Log("Cooking started");
-        }
-
-        if (sound != null)
-        {
-            cookingsound.Play(); // cooking sound
-        }
+            MusicManager.instance.PlaySound("Cooking");
+        }    
 
 
         // Wait for cooking time
@@ -88,13 +92,13 @@ public class Button : MonoBehaviour
             fire.Stop();
         }
 
-        if (sound != null)
-        {
-            cookingsound.Play();
-        }
-
-
         // Show bread
         bread.SetActive(true);
+
+        if (!moneySpawned)
+        {
+            Instantiate(money, moneySpawnPoint.position, moneySpawnPoint.rotation);
+            moneySpawned = true;
+        }
     }
 }

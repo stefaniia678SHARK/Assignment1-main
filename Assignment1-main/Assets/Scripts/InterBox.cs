@@ -59,7 +59,7 @@ public class InterBox : MonoBehaviour
     {
         oven.SetActive(true);
         button.SetActive(true);
-        button2.SetActive(true);
+        //button2.SetActive(true);
 
         Debug.Log("Oven ON: Cooking burgers");
 
