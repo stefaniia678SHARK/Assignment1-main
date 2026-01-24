@@ -1,43 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Security.Cryptography;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Button : MonoBehaviour
+public class CookButton : MonoBehaviour
 {
 
     public GameObject button;
-    public GameObject bread;
     public GameObject player;
     public GameObject objects;
+
+    public GameObject bread;
     public GameObject money;
     public Transform moneySpawnPoint;
+    public Transform breadSpawnPoint;
+
+    public TMP_Text TextWarning;
 
     public ParticleSystem fire;
     public float cookTime = 5f;
 
+    //for button events
     public UnityEvent onPress;
     public UnityEvent onRelease;
 
     Vector3 startPos;
 
+    private bool breadSpawned = false;
 
     bool isPressed;
     private bool moneySpawned = false;
-
+    private bool isCooking = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         isPressed = false;
-
         startPos = button.transform.localPosition; //start position of the red button
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (breadSpawned)
+        {
+            StartCoroutine(ShowWarning("You still have bread! Collect it first and put on the table."));
+            return;
+        }
+
         if (!isPressed)
         {
             button.transform.localPosition = startPos + Vector3.down * 0.02f;
@@ -59,9 +72,21 @@ public class Button : MonoBehaviour
         }
     }
 
+    public void BreadCollected()
+    {
+        breadSpawned = false;
+    }
+
     // Cooking bread when button is pressed
     public void Cook()
     {
+
+        if (isCooking || breadSpawned)
+        {
+            return;
+        }
+
+        isCooking = true;
         StartCoroutine(CookRoutine());
 
         //spawn the money
@@ -80,7 +105,7 @@ public class Button : MonoBehaviour
             fire.Play();
             Debug.Log("Cooking started");
             MusicManager.instance.PlaySound("Cooking");
-        }    
+        }
 
 
         // Wait for cooking time
@@ -93,12 +118,30 @@ public class Button : MonoBehaviour
         }
 
         // Show bread
-        bread.SetActive(true);
+        // Show bread
+        GameObject spawnedBread = Instantiate(bread, breadSpawnPoint.position, breadSpawnPoint.rotation);
+        Debug.Log("Spawning bread at: " + breadSpawnPoint.position + ", rotation: " + breadSpawnPoint.rotation);
+
+        Bread breadScript = spawnedBread.GetComponent<Bread>();
+        breadScript.buttonScript = this;
+
+        breadSpawned = true;
+
 
         if (!moneySpawned)
         {
             Instantiate(money, moneySpawnPoint.position, moneySpawnPoint.rotation);
             moneySpawned = true;
         }
+    }
+
+    IEnumerator ShowWarning(string message)
+    {
+        TextWarning.text = message;
+        TextWarning.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(10f);  // show for 2 seconds
+
+        TextWarning.gameObject.SetActive(false);
     }
 }
