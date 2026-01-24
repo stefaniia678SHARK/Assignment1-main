@@ -1848,6 +1848,7 @@ GameObject:
   - component: {fileID: 545523091}
   - component: {fileID: 545523095}
   - component: {fileID: 545523094}
+  - component: {fileID: 545523096}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -1918,6 +1919,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.79537416, y: 2, z: 0.78259075}
   m_Center: {x: -0.008526269, y: -0.000003834857, z: -0.0063924226}
+--- !u!114 &545523096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545523090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59d0d53432f874439cae8ce78093da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1070822112}
+  player: {fileID: 1099136811}
+  objects: {fileID: 1284049754}
+  bread: {fileID: 2982616878147211726, guid: 067d24eb31527b444850130b26dfd6fe, type: 3}
+  money: {fileID: 686366439755414619, guid: ed00b88cd65cc9c48a292227e84edc57, type: 3}
+  moneySpawnPoint: {fileID: 968055278}
+  breadSpawnPoint: {fileID: 1422443280}
+  TextWarning: {fileID: 2144163249}
+  fire: {fileID: 895607058}
+  cookTime: 10
+  onPress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 545523096}
+        m_TargetAssemblyTypeName: CookButton, Assembly-CSharp
+        m_MethodName: Cook
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &561552309
 PrefabInstance:
   m_ObjectHideFlags: 0
