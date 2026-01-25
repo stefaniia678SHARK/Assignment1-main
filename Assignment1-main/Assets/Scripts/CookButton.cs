@@ -71,7 +71,9 @@ public class CookButton : MonoBehaviour
         }
     }
 
-    // Resetting bread spawn status when collected, referenced in Bread.cs
+    // Resetting bread spawn status when collected, referenced in BreadZone.cs
+    // so it gets the value from another script to assign if the breadi n zone or no
+    // basically controlling entry point
 
     public void SetBreadPresent(bool present)
     {
@@ -129,6 +131,9 @@ public class CookButton : MonoBehaviour
                 objects.SetActive(true);
             }
         }
+
+        isCooking = false;
+
     }
 
     // Show warning message for a limited time

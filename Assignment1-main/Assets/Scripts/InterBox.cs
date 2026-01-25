@@ -6,7 +6,6 @@ public class InterBox : MonoBehaviour
 {
     public GameObject oven;
     public GameObject button;
-    public GameObject button2;
 
     public TMP_Text text1; 
     public TMP_Text text2;
@@ -19,7 +18,6 @@ public class InterBox : MonoBehaviour
         text1.gameObject.SetActive(true);
         text2.gameObject.SetActive(false);
         button.SetActive(false);
-        button2.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -36,7 +34,7 @@ public class InterBox : MonoBehaviour
         {
             ovenUnlocked = true;
 
-            Destroy(other.gameObject); // consume money
+            Destroy(other.gameObject);
             StartOven();
 
             text1.gameObject.SetActive(false);
@@ -59,9 +57,7 @@ public class InterBox : MonoBehaviour
     {
         oven.SetActive(true);
         button.SetActive(true);
-        //button2.SetActive(true);
 
         Debug.Log("Oven ON: Cooking burgers");
-
     }
 }

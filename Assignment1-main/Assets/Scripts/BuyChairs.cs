@@ -32,7 +32,7 @@ public class BuyChairs : MonoBehaviour
         {
             chairsUnlocked = true;
 
-            Destroy(other.gameObject); // consume money
+            Destroy(other.gameObject); 
             BuyChairsTables();
 
             text1.gameObject.SetActive(false);

@@ -11,6 +11,9 @@ TagManager:
   - Text1
   - Bread
   - Pita
+  - TableBr
+  - ChairBr1
+  - ChairBr
   layers:
   - Default
   - TransparentFX
