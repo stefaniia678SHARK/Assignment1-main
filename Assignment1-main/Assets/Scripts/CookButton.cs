@@ -30,13 +30,12 @@ public class CookButton : MonoBehaviour
 
     Vector3 startPos;
 
-    private bool breadSpawned = false;
+    private bool breadinZone = false;
 
     bool isPressed;
     private bool moneySpawned = false;
     private bool isCooking = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         isPressed = false;
@@ -45,9 +44,9 @@ public class CookButton : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (breadSpawned)
+        if (breadinZone)
         {
-            StartCoroutine(ShowWarning("You still have bread! Collect it first and put on the table."));
+            StartCoroutine(ShowWarning("You still have bread! Collect it first and put on the table.")); // change here the warning message
             return;
         }
 
@@ -72,16 +71,18 @@ public class CookButton : MonoBehaviour
         }
     }
 
-    public void BreadCollected()
+    // Resetting bread spawn status when collected, referenced in Bread.cs
+
+    public void SetBreadPresent(bool present)
     {
-        breadSpawned = false;
+        breadinZone = present;
     }
 
     // Cooking bread when button is pressed
     public void Cook()
     {
 
-        if (isCooking || breadSpawned)
+        if (isCooking || breadinZone)
         {
             return;
         }
@@ -89,13 +90,9 @@ public class CookButton : MonoBehaviour
         isCooking = true;
         StartCoroutine(CookRoutine());
 
-        //spawn the money
-        if (moneySpawned)
-
-        {
-            objects.SetActive(true);
-        }
     }
+
+    //using IEnumerator to handle the cooking time
 
     IEnumerator CookRoutine()
     {
@@ -107,8 +104,6 @@ public class CookButton : MonoBehaviour
             MusicManager.instance.PlaySound("Cooking");
         }
 
-
-        // Wait for cooking time
         yield return new WaitForSeconds(cookTime);
 
         // Stop particles
@@ -117,30 +112,33 @@ public class CookButton : MonoBehaviour
             fire.Stop();
         }
 
-        // Show bread
-        // Show bread
+
+        // Spawn the bread
         GameObject spawnedBread = Instantiate(bread, breadSpawnPoint.position, breadSpawnPoint.rotation);
         Debug.Log("Spawning bread at: " + breadSpawnPoint.position + ", rotation: " + breadSpawnPoint.rotation);
-
-        Bread breadScript = spawnedBread.GetComponent<Bread>();
-        breadScript.buttonScript = this;
-
-        breadSpawned = true;
-
 
         if (!moneySpawned)
         {
             Instantiate(money, moneySpawnPoint.position, moneySpawnPoint.rotation);
             moneySpawned = true;
+
+            //spawn the money
+            if (objects != null)
+
+            {
+                objects.SetActive(true);
+            }
         }
     }
+
+    // Show warning message for a limited time
 
     IEnumerator ShowWarning(string message)
     {
         TextWarning.text = message;
         TextWarning.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(10f);  // show for 2 seconds
+        yield return new WaitForSeconds(10f);  
 
         TextWarning.gameObject.SetActive(false);
     }
