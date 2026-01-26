@@ -41,6 +41,8 @@ public class InterBox : MonoBehaviour
             text2.gameObject.SetActive(true);
 
             Debug.Log("Money accepted, oven unlocked!");
+
+            Destroy(gameObject);
         }
     }
 

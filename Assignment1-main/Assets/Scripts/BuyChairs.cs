@@ -5,9 +5,11 @@ public class BuyChairs : MonoBehaviour
 {
     public GameObject buyobjects;
     public GameObject locker;
+    public GameObject cafezone;
 
     public TMP_Text text1;
     public TMP_Text text2;
+    public TMP_Text text3;
 
     private bool playerInside = false;
     private bool chairsUnlocked = false;
@@ -16,6 +18,7 @@ public class BuyChairs : MonoBehaviour
     {
         text1.gameObject.SetActive(true);
         text2.gameObject.SetActive(false);
+        text3.gameObject.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -39,6 +42,8 @@ public class BuyChairs : MonoBehaviour
             text2.gameObject.SetActive(true);
 
             Debug.Log("Money accepted, oven unlocked!");
+
+            Destroy(gameObject);
         }
     }
 
@@ -54,6 +59,8 @@ public class BuyChairs : MonoBehaviour
     {
         buyobjects.SetActive(true);
         locker.SetActive(false);
+        text3.gameObject.SetActive(true);
+        cafezone.SetActive(true);
     }
 
 }
