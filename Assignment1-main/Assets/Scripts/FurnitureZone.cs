@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class FurnitureZone : MonoBehaviour
 {
+    //this furniture zone is for chairs
+
     public GameObject chair;
 
     public TMP_Text text;
@@ -22,6 +24,8 @@ public class FurnitureZone : MonoBehaviour
             Destroy(other.gameObject);
             chair.SetActive(true);
             text.gameObject.SetActive(false);
+
+            FurnitureManager.Instance.chairsPlaced++; // Increment chair count in FurnitureManager
 
             Destroy(gameObject);
         }
