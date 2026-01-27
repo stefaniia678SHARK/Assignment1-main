@@ -9,6 +9,8 @@ public class FurnitureZone : MonoBehaviour
 
     public GameObject chair;
 
+    float numberOfMoney;
+
     public TMP_Text text;
 
     void Start()

@@ -11,6 +11,9 @@ public class SpawnVisitors : MonoBehaviour
     public GameObject[] visitorPrefab;
     public Table[] tables;
 
+    public GameObject planes;
+
+
     public Transform spawnPoint;
 
     bool hasSpawned = false;
@@ -46,7 +49,16 @@ public class SpawnVisitors : MonoBehaviour
 
         visitorObj.GetComponent<Visitor>().assignedTable = freeTable;
 
+        int visitorCount = FindObjectsOfType<Visitor>().Length;
+
+        if (visitorCount >= 2)
+        {
+            MusicManager.instance.PlaySound("VoicesInCafe");
+        }
+
         freeTable.isOccupied = true;
+
+        planes.SetActive(true);
     }
 
     Table GetFreeTable()

@@ -9,16 +9,18 @@ public class BuyChairs : MonoBehaviour
 
     public TMP_Text text1;
     public TMP_Text text2;
-    public TMP_Text text3;
 
     private bool playerInside = false;
     private bool chairsUnlocked = false;
 
+    public float requiredAmount = 2f;
+
+    private float currentMoney = 0f;
+
     void Start()
     {
-        text1.gameObject.SetActive(true);
+        text1.gameObject.SetActive(false);
         text2.gameObject.SetActive(false);
-        text3.gameObject.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -33,17 +35,23 @@ public class BuyChairs : MonoBehaviour
         // Money touches the plane
         if (!chairsUnlocked && other.CompareTag("Money"))
         {
-            chairsUnlocked = true;
+            currentMoney += 1f;
 
-            Destroy(other.gameObject); 
-            BuyChairsTables();
+            if (currentMoney >= requiredAmount)
+            {
 
-            text1.gameObject.SetActive(false);
-            text2.gameObject.SetActive(true);
+                chairsUnlocked = true;
 
-            Debug.Log("Money accepted, oven unlocked!");
+                Destroy(other.gameObject);
+                BuyChairsTables();
 
-            Destroy(gameObject);
+                text1.gameObject.SetActive(false);
+                text2.gameObject.SetActive(true);
+
+                Debug.Log("Money accepted, oven unlocked!");
+
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -59,7 +67,6 @@ public class BuyChairs : MonoBehaviour
     {
         buyobjects.SetActive(true);
         locker.SetActive(false);
-        text3.gameObject.SetActive(true);
         cafezone.SetActive(true);
     }
 
