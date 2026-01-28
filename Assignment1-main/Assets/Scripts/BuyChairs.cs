@@ -19,8 +19,7 @@ public class BuyChairs : MonoBehaviour
 
     void Start()
     {
-        text1.gameObject.SetActive(false);
-        text2.gameObject.SetActive(false);
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -46,7 +45,7 @@ public class BuyChairs : MonoBehaviour
                 BuyChairsTables();
 
                 text1.gameObject.SetActive(false);
-                text2.gameObject.SetActive(true);
+                text2.gameObject.SetActive(false);
 
                 Debug.Log("Money accepted, oven unlocked!");
 

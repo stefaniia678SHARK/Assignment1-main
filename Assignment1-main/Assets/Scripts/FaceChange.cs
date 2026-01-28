@@ -8,6 +8,7 @@ public class FaceChange : MonoBehaviour
     public Texture annoyedFace;
     public Texture angryFace;
 
+    //changing faces
     public void SetHappy()
     {
         facerenderer.material.mainTexture = happyFace;

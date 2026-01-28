@@ -13,7 +13,6 @@ public class SpawnVisitors : MonoBehaviour
 
     public GameObject planes;
 
-
     public Transform spawnPoint;
 
     bool hasSpawned = false;
