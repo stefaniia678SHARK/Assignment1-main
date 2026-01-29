@@ -12,19 +12,26 @@ public class Visitor : MonoBehaviour
     public NavMeshAgent agent; //for calculating the path to walk from current position
                                //to target position
 
+    public GameObject money;
+
     public Table assignedTable;
     public FaceChange faceChange;
 
     public float waitTime = 5f;
     public float eatTime = 10f;
 
-    bool isWatiting = false;
+    bool isWaiting = false;
     bool isEating = false;
+
+    public Transform moneySpawnPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
     {
+        assignedTable.isOccupied = true;
+        assignedTable.currentVisitor = this;
+
         agent.SetDestination(assignedTable.standPoint.position);
         faceChange.SetHappy();
     }
@@ -32,11 +39,11 @@ public class Visitor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isWatiting && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        if (!isWaiting && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
             agent.isStopped = true;
             StartCoroutine(WaitingForBread());
-            isWatiting = true;
+            isWaiting = true;
         }
     }
 
@@ -46,6 +53,7 @@ public class Visitor : MonoBehaviour
         
         if (assignedTable.hasBread)
         {
+            StartCoroutine(EatBread());
             yield break;
         }
 
@@ -56,13 +64,14 @@ public class Visitor : MonoBehaviour
 
         if (assignedTable.hasBread)
         {
-            yield break;
+            StartCoroutine(EatBread());
             faceChange.SetHappy();
-            Leave();
+            yield break;
         }
 
         faceChange.SetAngry();
-        Leave();
+
+          Leave();
 
         Debug.Log("Visitor is leaving due to no bread");
 
@@ -91,12 +100,19 @@ public class Visitor : MonoBehaviour
 
     void GiveMoney()
     {
-        //
+        Instantiate(money, moneySpawnPoint.position, moneySpawnPoint.rotation);
     }
 
     void Leave()
     {
         assignedTable.isOccupied = false;
+        assignedTable.ClearTable();
+
+        isWaiting = false;
+        isEating = false;
+
+        FindObjectOfType<SpawnVisitors>().NotifyVisitorLeft();
+
         agent.isStopped = false;
         agent.SetDestination(assignedTable.exitPoint.position);
         Destroy(gameObject, 10f);

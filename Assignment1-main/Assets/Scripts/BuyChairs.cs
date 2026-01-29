@@ -47,7 +47,7 @@ public class BuyChairs : MonoBehaviour
                 text1.gameObject.SetActive(false);
                 text2.gameObject.SetActive(false);
 
-                Debug.Log("Money accepted, oven unlocked!");
+                Debug.Log("Money accepted!");
 
                 Destroy(gameObject);
             }

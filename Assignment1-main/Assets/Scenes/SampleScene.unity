@@ -1214,7 +1214,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1231,6 +1231,10 @@ PrefabInstance:
     - target: {fileID: 3737480884400756103, guid: f82b5d5e82684c4469138b4ad06a2721, type: 3}
       propertyPath: m_Name
       value: Chair4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3737480884400756103, guid: f82b5d5e82684c4469138b4ad06a2721, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3737480884400756103, guid: f82b5d5e82684c4469138b4ad06a2721, type: 3}
       propertyPath: m_TagString
@@ -1469,8 +1473,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6352792, y: 1.3265407, z: 0.72445786}
-  m_Center: {x: 0.00078865886, y: 0.65236413, z: 0.0574639}
+  m_Size: {x: 0.82255363, y: 1.442748, z: 0.91647434}
+  m_Center: {x: 0.014141083, y: 0.71046776, z: 0.021642685}
 --- !u!1 &220052388
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,6 +2179,10 @@ PrefabInstance:
       value: Chair3.1
       objectReference: {fileID: 0}
     - target: {fileID: 492245621828925112, guid: d61cb084cf8b2b44986e5bd7d9d4b525, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492245621828925112, guid: d61cb084cf8b2b44986e5bd7d9d4b525, type: 3}
       propertyPath: m_TagString
       value: ChairBr
       objectReference: {fileID: 0}
@@ -2411,8 +2419,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.0694456, y: 0.9711079, z: 0.9662367}
-  m_Center: {x: -0.00003439188, y: 0.4772108, z: 0.00018066168}
+  m_Size: {x: 2.3544338, y: 1.2262783, z: 1.1387995}
+  m_Center: {x: 0.031317353, y: 0.60479593, z: 0.08646208}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,7 +2567,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2578,7 +2586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standPoint: {fileID: 1125691534}
-  exitPoint: {fileID: 0}
+  exitPoint: {fileID: 939821542}
   isOccupied: 0
   hasBread: 0
   currentVisitor: {fileID: 0}
@@ -2813,7 +2821,7 @@ Transform:
   m_GameObject: {fileID: 441666516}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.058529854, y: 1.65, z: -10.82}
+  m_LocalPosition: {x: -0.058529854, y: 3.74, z: -11.31}
   m_LocalScale: {x: 0.39306003, y: 0.39306003, z: 0.39306006}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3437,6 +3445,10 @@ PrefabInstance:
       value: Chair4
       objectReference: {fileID: 0}
     - target: {fileID: 3737480884400756103, guid: f82b5d5e82684c4469138b4ad06a2721, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3737480884400756103, guid: f82b5d5e82684c4469138b4ad06a2721, type: 3}
       propertyPath: m_TagString
       value: ChairBr
       objectReference: {fileID: 0}
@@ -3744,8 +3756,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1029632, y: 1.030305, z: 1.1029632}
-  m_Center: {x: 0, y: 0.52215046, z: 0}
+  m_Size: {x: 1.3553057, y: 1.2183536, z: 1.3538666}
+  m_Center: {x: -0.0014462471, y: 0.61617476, z: -0.027835846}
 --- !u!1001 &576754144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5033,8 +5045,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.58383864, y: 1.0485971, z: 0.64939755}
-  m_Center: {x: -0.000000029802322, y: 0.5349082, z: 0.01458624}
+  m_Size: {x: 0.7039323, y: 1.1565692, z: 0.8764372}
+  m_Center: {x: 0.0051834583, y: 0.58889425, z: 0.04246998}
 --- !u!1 &749975054
 GameObject:
   m_ObjectHideFlags: 0
@@ -5283,7 +5295,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5314,7 +5326,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5335,7 +5347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &811324684
 Transform:
   m_ObjectHideFlags: 0
@@ -5379,7 +5391,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5754,7 +5766,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5773,7 +5785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standPoint: {fileID: 1793935431}
-  exitPoint: {fileID: 0}
+  exitPoint: {fileID: 939821542}
   isOccupied: 0
   hasBread: 0
   currentVisitor: {fileID: 0}
@@ -5788,6 +5800,10 @@ PrefabInstance:
     - target: {fileID: 2699120337045188249, guid: b16f47f3973251f44ad5e4f0cc5c2578, type: 3}
       propertyPath: m_Name
       value: Table3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699120337045188249, guid: b16f47f3973251f44ad5e4f0cc5c2578, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2699120337045188249, guid: b16f47f3973251f44ad5e4f0cc5c2578, type: 3}
       propertyPath: m_TagString
@@ -11008,7 +11024,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -11039,7 +11055,7 @@ Transform:
   m_GameObject: {fileID: 939821541}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: -0.4, z: 12.29}
+  m_LocalPosition: {x: -2, y: -0.4, z: 12.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11439,8 +11455,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.58383864, y: 1.0485971, z: 0.64939755}
-  m_Center: {x: -0.000000029802322, y: 0.5349082, z: 0.01458624}
+  m_Size: {x: 0.79088545, y: 1.0846276, z: 0.8334956}
+  m_Center: {x: 0.007965326, y: 0.55292344, z: 0.034294844}
 --- !u!1 &963167396 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7384884230914764799, guid: 2a4a7f4204975ac49a2f0310e57265da, type: 3}
@@ -11614,7 +11630,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -11761,7 +11777,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -12026,6 +12042,10 @@ PrefabInstance:
       value: Table4
       objectReference: {fileID: 0}
     - target: {fileID: 7260702120108375532, guid: 4a09c0d856e188e439f6552df62f9e19, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260702120108375532, guid: 4a09c0d856e188e439f6552df62f9e19, type: 3}
       propertyPath: m_TagString
       value: TableBr
       objectReference: {fileID: 0}
@@ -12257,8 +12277,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2160369, y: 1.0313606, z: 1.2160369}
-  m_Center: {x: 0, y: 0.5177736, z: 0}
+  m_Size: {x: 1.4993048, y: 1.1901405, z: 1.3077197}
+  m_Center: {x: -0.0030751228, y: 0.59716356, z: 0.045841455}
 --- !u!1 &1156305005
 GameObject:
   m_ObjectHideFlags: 0
@@ -12948,7 +12968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1284049755
 Transform:
   m_ObjectHideFlags: 0
@@ -13139,7 +13159,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -13323,8 +13343,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6352792, y: 1.3265407, z: 0.72445786}
-  m_Center: {x: 0.00078865886, y: 0.65566266, z: 0.0574639}
+  m_Size: {x: 0.8851867, y: 1.40752, z: 0.917119}
+  m_Center: {x: 0.008139372, y: 0.6961523, z: 0.034787178}
 --- !u!1 &1348765811
 GameObject:
   m_ObjectHideFlags: 0
@@ -13481,6 +13501,10 @@ PrefabInstance:
     - target: {fileID: 492245621828925112, guid: d61cb084cf8b2b44986e5bd7d9d4b525, type: 3}
       propertyPath: m_Name
       value: Chair3.1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 492245621828925112, guid: d61cb084cf8b2b44986e5bd7d9d4b525, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 492245621828925112, guid: d61cb084cf8b2b44986e5bd7d9d4b525, type: 3}
       propertyPath: m_TagString
@@ -13719,8 +13743,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5688448, y: 1.3188617, z: 0.70592654}
-  m_Center: {x: 0.000000014901161, y: 0.6710321, z: 0.03873609}
+  m_Size: {x: 0.81031895, y: 1.3651757, z: 0.89510393}
+  m_Center: {x: -0.0128006935, y: 0.6941891, z: 0.02478242}
 --- !u!1001 &1399504941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13970,8 +13994,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6352792, y: 1.3265407, z: 0.72445786}
-  m_Center: {x: 0.00078865886, y: 0.6594988, z: 0.0574639}
+  m_Size: {x: 0.87559605, y: 1.4097536, z: 0.98136425}
+  m_Center: {x: -0.0043959618, y: 0.70110524, z: 0.04449272}
 --- !u!1 &1413039669
 GameObject:
   m_ObjectHideFlags: 0
@@ -14318,8 +14342,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.1726882, y: 0.9547196, z: 1.0876765}
-  m_Center: {x: -0.00037777424, y: 0.48228088, z: -0.00061297417}
+  m_Size: {x: 2.3836203, y: 1.0955212, z: 1.145452}
+  m_Center: {x: 0.0027184486, y: 0.5526817, z: 0.028274775}
 --- !u!1 &1462805227 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5941451431519165070, guid: cd44af195fe2e02459c0ea4f9a9fc854, type: 3}
@@ -14687,7 +14711,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -14706,7 +14730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standPoint: {fileID: 1590783461}
-  exitPoint: {fileID: 0}
+  exitPoint: {fileID: 939821542}
   isOccupied: 0
   hasBread: 0
   currentVisitor: {fileID: 0}
@@ -15547,8 +15571,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8546202, y: 0.93848896, z: 1.0417676}
-  m_Center: {x: 0, y: 0.4424203, z: 0}
+  m_Size: {x: 2.0998564, y: 1.0316234, z: 1.1989157}
+  m_Center: {x: 0.0060539246, y: 0.48898745, z: 0.07857406}
 --- !u!1001 &1702178390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15860,8 +15884,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6352792, y: 1.3265407, z: 0.72445786}
-  m_Center: {x: 0.00078865886, y: 0.65236413, z: 0.0574639}
+  m_Size: {x: 0.8119745, y: 1.4684471, z: 0.8850136}
+  m_Center: {x: 0.0039277077, y: 0.7233173, z: 0.04161644}
 --- !u!1 &1740561304
 GameObject:
   m_ObjectHideFlags: 0
@@ -16068,7 +16092,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -16161,7 +16185,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -16411,8 +16435,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6352792, y: 1.3265407, z: 0.72445786}
-  m_Center: {x: 0.00078865886, y: 0.6594988, z: 0.0574639}
+  m_Size: {x: 0.8390055, y: 1.4111516, z: 0.89590263}
+  m_Center: {x: -0.019948483, y: 0.7018043, z: 0.06440163}
 --- !u!1 &1768987975
 GameObject:
   m_ObjectHideFlags: 0
@@ -17100,7 +17124,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -17119,7 +17143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standPoint: {fileID: 2052976842}
-  exitPoint: {fileID: 0}
+  exitPoint: {fileID: 939821542}
   isOccupied: 0
   hasBread: 0
   currentVisitor: {fileID: 0}
@@ -17157,7 +17181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.36, y: -1.19}
+  m_AnchoredPosition: {x: 0.01, y: -1.19}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860576873
@@ -17180,8 +17204,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Grab these chairs and tables and put into the cafe zone (min amount to
-    have customers is 1 table and 2 chair)
+  m_text: Grab chairs and tables and put into the cafe zone (min amount to have customers
+    is 1 table and 2 chair)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17830,8 +17854,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5688448, y: 1.3188617, z: 0.70592654}
-  m_Center: {x: 0.000000014901161, y: 0.6710321, z: 0.03873609}
+  m_Size: {x: 0.8300829, y: 1.456826, z: 1.0457201}
+  m_Center: {x: 0.0038132668, y: 0.7400142, z: 0.035462856}
 --- !u!1 &1944813440
 GameObject:
   m_ObjectHideFlags: 0
@@ -18235,8 +18259,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6352792, y: 1.3265407, z: 0.72445786}
-  m_Center: {x: 0.00078865886, y: 0.65566266, z: 0.0574639}
+  m_Size: {x: 0.94318485, y: 1.4341116, z: 0.93283653}
+  m_Center: {x: -0.017182827, y: 0.7094481, z: 0.06809807}
 --- !u!1 &1971937964
 GameObject:
   m_ObjectHideFlags: 0
@@ -19456,7 +19480,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -19475,7 +19499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standPoint: {fileID: 385044987}
-  exitPoint: {fileID: 0}
+  exitPoint: {fileID: 939821542}
   isOccupied: 0
   hasBread: 0
   currentVisitor: {fileID: 0}

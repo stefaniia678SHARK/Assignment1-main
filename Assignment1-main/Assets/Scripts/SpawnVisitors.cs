@@ -18,6 +18,11 @@ public class SpawnVisitors : MonoBehaviour
 
     bool hasSpawned = false;
 
+
+    public void NotifyVisitorLeft()
+    {
+        hasSpawned = false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -32,31 +37,24 @@ public class SpawnVisitors : MonoBehaviour
 
             if (freeTable != null)
             {
-                SpawnVisitor();
+                hasSpawned = true;
+                SpawnVisitor(freeTable);
                 MusicManager.instance.PlaySound("DoorOpenening");
 
             }
         }
     }
 
-    void SpawnVisitor()
+    void SpawnVisitor(Table freeTable)
     {
-        Table freeTable = GetFreeTable();
-
-        if (freeTable == null)
-        {
-            return;
-        }
 
         int index = Random.Range(0, visitorPrefab.Length);
 
-        GameObject visitorObj = 
-            Instantiate(visitorPrefab[index], spawnPoint.position, Quaternion.identity);
+        GameObject visitorObj =
+                Instantiate(visitorPrefab[index], spawnPoint.position, Quaternion.identity);
 
         Visitor visitor = visitorObj.GetComponent<Visitor>();
 
-        //making a visitor assigned to a random table
-        // and then "table" will know which table it is assigned to
         visitor.assignedTable = freeTable;
         freeTable.currentVisitor = visitor;
         freeTable.isOccupied = true;
@@ -67,7 +65,6 @@ public class SpawnVisitors : MonoBehaviour
         {
             MusicManager.instance.PlaySound("VoicesInCafe");
         }
-
 
         planes.SetActive(true);
     }

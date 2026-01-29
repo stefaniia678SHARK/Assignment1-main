@@ -21,6 +21,12 @@ public class Table : MonoBehaviour
         if (currentVisitor != null)
         {
             currentVisitor.OnBreadPlaced();
+            Debug.Log("Visitor notified of bread placement");
+        }
+
+        else
+        {
+            Debug.Log("No visitor to notify about bread placement");
         }
     }
 

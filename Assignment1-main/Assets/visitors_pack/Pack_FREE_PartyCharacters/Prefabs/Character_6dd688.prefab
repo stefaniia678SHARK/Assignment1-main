@@ -686,10 +686,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 7649565599588108345}
+  money: {fileID: 686366439755414619, guid: ed00b88cd65cc9c48a292227e84edc57, type: 3}
   assignedTable: {fileID: 0}
   faceChange: {fileID: -437169388706128461}
-  waitTime: 6
+  waitTime: 10
   eatTime: 10
+  moneySpawnPoint: {fileID: 7781106450355327534, guid: db65d5462e389c74daaef991e1286458, type: 3}
 --- !u!114 &-437169388706128461
 MonoBehaviour:
   m_ObjectHideFlags: 0
