@@ -4,6 +4,11 @@ using TMPro;
 public class BuyChairs : MonoBehaviour
 {
 
+    public MeshRenderer meshRenderer;
+
+    public Texture texture200;
+    public Texture texture100;
+
     //logic when you buy chairs -> you throw money into the box plane
     // money and box plane disappears and then after some objects will appear 
 
@@ -23,7 +28,7 @@ public class BuyChairs : MonoBehaviour
 
     void Start()
     {
-
+        UpdateSprite();
     }
 
     void OnTriggerEnter(Collider other)
@@ -40,6 +45,8 @@ public class BuyChairs : MonoBehaviour
         {
             currentMoney += 1f;
             Destroy(other.gameObject);
+
+            UpdateSprite();
 
             if (currentMoney >= requiredAmount)
             {
@@ -71,6 +78,25 @@ public class BuyChairs : MonoBehaviour
         buyobjects.SetActive(true);
         locker.SetActive(false);
         cafezone.SetActive(true);
+    }
+
+    void UpdateSprite()
+    {
+        //function to update sprite depending on how much money is left to buy chairs
+        //when you will put only 100$ to the plane with 300$ required amount
+        //-> texture 200$ will appear
+
+
+        int remainingMoney = (int)(requiredAmount - currentMoney);
+
+        if (remainingMoney == 2)
+        {
+            meshRenderer.material.mainTexture = texture200;
+        }
+        else if (remainingMoney == 1)
+        {
+            meshRenderer.material.mainTexture = texture100;
+        }
     }
 
 }

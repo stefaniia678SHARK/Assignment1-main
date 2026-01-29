@@ -61,7 +61,7 @@ public class Visitor : MonoBehaviour
         yield return new WaitForSeconds(5f); 
         agent.isStopped = false;
 
-        if (assignedTable.hasBread)
+        if (assignedTable.hasBread && !isEating)
         {
             StartCoroutine(EatBread());
             faceChange.SetHappy();
@@ -78,7 +78,7 @@ public class Visitor : MonoBehaviour
 
     public void OnBreadPlaced()
     {
-        if (isEating)
+        if (isEating || isLeaving)
         {
             return;
         }
