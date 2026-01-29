@@ -12,6 +12,7 @@ public class FurnitureManager : MonoBehaviour
         Instance = this;        
     }
 
+    //checking the requirments to spawn visitors
     public bool CanSpawnVisitors()
     {
         return chairsPlaced >= 2 && tablesPlaced >= 1;

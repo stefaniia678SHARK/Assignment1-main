@@ -7,10 +7,11 @@ public class Table : MonoBehaviour
 
     public bool isOccupied = false;
     public bool hasBread = false;
+    public bool isSpawning = false;
 
     public Visitor currentVisitor;
 
-    //placing bread logic
+    //placing bread on the table logic
     public void PlaceBread()
     {
         if (hasBread)
@@ -35,5 +36,6 @@ public class Table : MonoBehaviour
         isOccupied = false;
         hasBread = false;
         currentVisitor = null;
+        isSpawning = false;
     }
 }

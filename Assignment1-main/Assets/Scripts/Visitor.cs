@@ -22,6 +22,8 @@ public class Visitor : MonoBehaviour
 
     bool isWaiting = false;
     bool isEating = false;
+    bool isLeaving = false;
+
 
     public Transform moneySpawnPoint;
 
@@ -29,9 +31,6 @@ public class Visitor : MonoBehaviour
 
     void Start()
     {
-        assignedTable.isOccupied = true;
-        assignedTable.currentVisitor = this;
-
         agent.SetDestination(assignedTable.standPoint.position);
         faceChange.SetHappy();
     }
@@ -98,20 +97,26 @@ public class Visitor : MonoBehaviour
         Leave();
     }
 
+    //When visitor gets bread this function will be called after 10 seconds and spawn money
     void GiveMoney()
     {
         Instantiate(money, moneySpawnPoint.position, moneySpawnPoint.rotation);
     }
 
+    //visitor leaves the restaurant
     void Leave()
     {
-        assignedTable.isOccupied = false;
+        if (isLeaving)
+        {
+            return;
+        }
+
+        isLeaving = true;
+
         assignedTable.ClearTable();
 
         isWaiting = false;
         isEating = false;
-
-        FindObjectOfType<SpawnVisitors>().NotifyVisitorLeft();
 
         agent.isStopped = false;
         agent.SetDestination(assignedTable.exitPoint.position);

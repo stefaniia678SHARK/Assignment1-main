@@ -16,13 +16,6 @@ public class SpawnVisitors : MonoBehaviour
 
     public Transform spawnPoint;
 
-    bool hasSpawned = false;
-
-
-    public void NotifyVisitorLeft()
-    {
-        hasSpawned = false;
-    }
     // Update is called once per frame
     void Update()
     {
@@ -31,22 +24,30 @@ public class SpawnVisitors : MonoBehaviour
             return;
         }
 
-        if (FurnitureManager.Instance.CanSpawnVisitors())
+        if (!FurnitureManager.Instance.CanSpawnVisitors())
         {
-            Table freeTable = GetFreeTable(); 
-
-            if (freeTable != null)
-            {
-                hasSpawned = true;
-                SpawnVisitor(freeTable);
-                MusicManager.instance.PlaySound("DoorOpenening");
-
-            }
+            return;
         }
+
+        foreach (Table table in tables)
+        {
+            if (!table.gameObject.activeInHierarchy)
+                continue;
+
+            if (table.isOccupied || table.isSpawning)
+                continue;
+
+            SpawnVisitor(table);
+            break; 
+        }
+  
     }
 
     void SpawnVisitor(Table freeTable)
     {
+
+        freeTable.isSpawning = true;
+        //we will be spawning random visitor from the array of visitors
 
         int index = Random.Range(0, visitorPrefab.Length);
 
@@ -55,11 +56,15 @@ public class SpawnVisitors : MonoBehaviour
 
         Visitor visitor = visitorObj.GetComponent<Visitor>();
 
+        //assigning the free table to the visitor
+
         visitor.assignedTable = freeTable;
         freeTable.currentVisitor = visitor;
         freeTable.isOccupied = true;
 
         int visitorCount = FindObjectsOfType<Visitor>().Length;
+
+        //adding sound of cafe voices if there are 2 or more visitors
 
         if (visitorCount >= 2)
         {
@@ -67,15 +72,5 @@ public class SpawnVisitors : MonoBehaviour
         }
 
         planes.SetActive(true);
-    }
-
-    Table GetFreeTable()
-    {
-        foreach (var table in tables)
-        {
-            if (table.gameObject.activeInHierarchy && !table.isOccupied)
-                return table;
-        }
-        return null;
     }
 }

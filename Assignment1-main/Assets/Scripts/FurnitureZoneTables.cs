@@ -8,10 +8,6 @@ public class FurnitureZoneTables : MonoBehaviour
     public GameObject table;
 
     bool tableUnlocked = false;
-    void Start()
-    {
-;
-    }
 
     void OnTriggerEnter(Collider other)
     {

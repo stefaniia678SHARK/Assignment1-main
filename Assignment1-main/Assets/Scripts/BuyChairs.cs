@@ -3,6 +3,10 @@ using TMPro;
 
 public class BuyChairs : MonoBehaviour
 {
+
+    //logic when you buy chairs -> you throw money into the box plane
+    // money and box plane disappears and then after some objects will appear 
+
     public GameObject buyobjects;
     public GameObject locker;
     public GameObject cafezone;
@@ -35,13 +39,13 @@ public class BuyChairs : MonoBehaviour
         if (!chairsUnlocked && other.CompareTag("Money"))
         {
             currentMoney += 1f;
+            Destroy(other.gameObject);
 
             if (currentMoney >= requiredAmount)
             {
 
                 chairsUnlocked = true;
 
-                Destroy(other.gameObject);
                 BuyChairsTables();
 
                 text1.gameObject.SetActive(false);
