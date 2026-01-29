@@ -2578,7 +2578,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standPoint: {fileID: 1125691534}
+  exitPoint: {fileID: 0}
   isOccupied: 0
+  hasBread: 0
+  currentVisitor: {fileID: 0}
 --- !u!1001 &426123881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5770,7 +5773,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standPoint: {fileID: 1793935431}
+  exitPoint: {fileID: 0}
   isOccupied: 0
+  hasBread: 0
+  currentVisitor: {fileID: 0}
 --- !u!1001 &860150877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11008,6 +11014,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6352792, y: 1.3265407, z: 0.72445786}
   m_Center: {x: 0.00078865886, y: 0.65566266, z: 0.0574639}
+--- !u!1 &939821541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 939821542}
+  m_Layer: 0
+  m_Name: ExitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &939821542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939821541}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2, y: -0.4, z: 12.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1889577931}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &944491093
 GameObject:
   m_ObjectHideFlags: 0
@@ -14669,7 +14706,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standPoint: {fileID: 1590783461}
+  exitPoint: {fileID: 0}
   isOccupied: 0
+  hasBread: 0
+  currentVisitor: {fileID: 0}
 --- !u!1001 &1551416517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14937,7 +14977,7 @@ GameObject:
   - component: {fileID: 1614589602}
   - component: {fileID: 1614589601}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: SafeFloorJustInCase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17079,7 +17119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standPoint: {fileID: 2052976842}
+  exitPoint: {fileID: 0}
   isOccupied: 0
+  hasBread: 0
+  currentVisitor: {fileID: 0}
 --- !u!1 &1860576871
 GameObject:
   m_ObjectHideFlags: 0
@@ -17396,6 +17439,7 @@ Transform:
   m_Children:
   - {fileID: 968055278}
   - {fileID: 1422443280}
+  - {fileID: 939821542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1908577160
@@ -19431,7 +19475,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standPoint: {fileID: 385044987}
+  exitPoint: {fileID: 0}
   isOccupied: 0
+  hasBread: 0
+  currentVisitor: {fileID: 0}
 --- !u!1 &2098328250
 GameObject:
   m_ObjectHideFlags: 0

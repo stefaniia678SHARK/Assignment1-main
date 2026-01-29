@@ -1,5 +1,6 @@
 using System; //i decide to keep this line "system" just in case
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using UnityEngine;
 using Random = UnityEngine.Random; //and make sure that unity understand that it
                                    //uses different random not system one but
@@ -25,11 +26,16 @@ public class SpawnVisitors : MonoBehaviour
             return;
         }
 
-        if (!hasSpawned && FurnitureManager.Instance.CanSpawnVisitors())
+        if (FurnitureManager.Instance.CanSpawnVisitors())
         {
-            SpawnVisitor();
-            hasSpawned = true;
-            MusicManager.instance.PlaySound("DoorOpenening");
+            Table freeTable = GetFreeTable(); 
+
+            if (freeTable != null)
+            {
+                SpawnVisitor();
+                MusicManager.instance.PlaySound("DoorOpenening");
+
+            }
         }
     }
 
@@ -43,10 +49,17 @@ public class SpawnVisitors : MonoBehaviour
         }
 
         int index = Random.Range(0, visitorPrefab.Length);
+
         GameObject visitorObj = 
             Instantiate(visitorPrefab[index], spawnPoint.position, Quaternion.identity);
 
-        visitorObj.GetComponent<Visitor>().assignedTable = freeTable;
+        Visitor visitor = visitorObj.GetComponent<Visitor>();
+
+        //making a visitor assigned to a random table
+        // and then "table" will know which table it is assigned to
+        visitor.assignedTable = freeTable;
+        freeTable.currentVisitor = visitor;
+        freeTable.isOccupied = true;
 
         int visitorCount = FindObjectsOfType<Visitor>().Length;
 
@@ -55,7 +68,6 @@ public class SpawnVisitors : MonoBehaviour
             MusicManager.instance.PlaySound("VoicesInCafe");
         }
 
-        freeTable.isOccupied = true;
 
         planes.SetActive(true);
     }
@@ -64,7 +76,7 @@ public class SpawnVisitors : MonoBehaviour
     {
         foreach (var table in tables)
         {
-            if (!table.isOccupied)
+            if (table.gameObject.activeInHierarchy && !table.isOccupied)
                 return table;
         }
         return null;

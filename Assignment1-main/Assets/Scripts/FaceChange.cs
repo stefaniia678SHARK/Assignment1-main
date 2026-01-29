@@ -2,25 +2,38 @@ using UnityEngine;
 
 public class FaceChange : MonoBehaviour
 {
-    public Renderer facerenderer; //can be used for both mesh and skinned mesh renderer
+    public SkinnedMeshRenderer facerenderer; 
 
     public Texture happyFace;
     public Texture annoyedFace;
     public Texture angryFace;
 
+
+    void Awake()
+    {
+        facerenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+    }
+
     //changing faces
     public void SetHappy()
     {
-        facerenderer.material.mainTexture = happyFace;
+        var mats = facerenderer.materials;
+        mats[1].mainTexture = happyFace;
+        facerenderer.materials = mats;
     }
+  
 
     public void SetAnnoyed()
     {
-        facerenderer.material.mainTexture = annoyedFace;
+        var mats = facerenderer.materials;
+        mats[1].mainTexture = annoyedFace;
+        facerenderer.materials = mats;
     }
 
     public void SetAngry()
     {
-        facerenderer.material.mainTexture = angryFace;
+        var mats = facerenderer.materials;
+        mats[1].mainTexture = angryFace;
+        facerenderer.materials = mats;
     }
 }

@@ -394,6 +394,8 @@ MonoBehaviour:
   agent: {fileID: 2364748280174422183}
   assignedTable: {fileID: 0}
   faceChange: {fileID: 4493331671226451233}
+  waitTime: 10
+  eatTime: 10
 --- !u!114 &4493331671226451233
 MonoBehaviour:
   m_ObjectHideFlags: 0
