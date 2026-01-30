@@ -1,9 +1,11 @@
-/*using UnityEngine;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
     public float interactRange = 5f;
     public Camera playerCamera;
+    public MouseInterec MouseInterecScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,22 +21,19 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, interactRange))
-        {
-            if (hit.collider.CompareTag("Interactable"))
-            { 
+        {    
 
-                if (Keyboard.current.eKey.wasPressedThisFrame)
-                {
-                    Button button = hit.collider.GetComponent<Button>();
-                    button.Press();
+            if (Keyboard.current.eKey.wasPressedThisFrame)
+            {
+                // Button button = hit.collider.GetComponent<Button>();
+                // button.Press();
 
-                }
-
-                return;
             }
+
+            return;
+            
         }
 
 
     }
 }
-*/
