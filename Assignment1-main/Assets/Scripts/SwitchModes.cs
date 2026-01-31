@@ -3,31 +3,66 @@ using UnityEngine.InputSystem;
 
 public class SwitchModes : MonoBehaviour
 {
+    public static bool SavedDesktopMode = true;
+
     public GameObject desktopPlayer;
     public GameObject vrPlayer;
+    public GameObject desktopUI;
 
     public bool startInDesktop = true;
 
+    private bool isDesktop;
+
+    public bool waitForChoice = false;
+
+    public MonoBehaviour desktopMovement;
+
     void Start()
     {
-        SetDesktopMode(startInDesktop);
+        if (waitForChoice)
+        {
+            return;
+        }
+
+        // If coming from previous scene, use saved value
+        isDesktop = SavedDesktopMode;
+        SetDesktopMode(isDesktop);
     }
 
-    void Update()
+        void Update()
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            bool desktopActive = desktopPlayer.activeSelf;
-            SetDesktopMode(!desktopActive);
+            SetDesktopMode(!isDesktop);
         }
     }
 
-    void SetDesktopMode(bool desktop)
+    public void SetDesktopMode(bool desktop)
     {
-        desktopPlayer.SetActive(desktop);
-        vrPlayer.SetActive(!desktop);
+        SavedDesktopMode = desktop;
+        isDesktop = desktop;
 
-        // Cursor handling
+        if (desktopPlayer != null)
+        {
+            desktopPlayer.SetActive(desktop);
+        }
+
+        if (vrPlayer != null)
+        {
+            vrPlayer.SetActive(!desktop);
+        }
+
+        if (desktopMovement != null)
+        {
+            desktopMovement.enabled = desktop;
+        }
+
+        if (desktopUI != null)
+        {
+            desktopUI.SetActive(desktop);
+        }
+
+        // cursor handling
         Cursor.lockState = desktop ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !desktop;
 

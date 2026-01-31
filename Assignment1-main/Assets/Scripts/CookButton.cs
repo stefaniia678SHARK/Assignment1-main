@@ -94,6 +94,45 @@ public class CookButton : MonoBehaviour
 
     }
 
+    // Fro desktop mode button press
+    // In PlayerInteraction script, we call
+    // this Press() method when the player
+    // interacts with the button in desktop mode
+
+    public void Press()
+    {
+        if (breadinZone)
+        {
+            StartCoroutine(ShowWarning("You still have bread! Collect it first and put on the table."));
+            return;
+        }
+
+        if (isPressed)
+        {
+            Release();
+        }
+
+        button.transform.localPosition = startPos + Vector3.down * 0.02f;
+        isPressed = true;
+
+        onPress.Invoke();
+        Debug.Log("Button Pressed (Desktop)");
+        MusicManager.instance.PlaySound("ButtonClick");
+
+        Cook();
+
+        StartCoroutine(ResetButton());
+    }
+
+    //using for reseting button position and to be able to clickit again
+    public void Release()
+    {
+        button.transform.localPosition = startPos;
+        isPressed = false;
+        onRelease.Invoke();
+    }
+
+
     //using IEnumerator to handle the cooking time
 
     IEnumerator CookRoutine()
@@ -146,5 +185,13 @@ public class CookButton : MonoBehaviour
         yield return new WaitForSeconds(10f);  
 
         TextWarning.gameObject.SetActive(false);
+    }
+
+    //only for desktop mode to reset button after a short delay
+
+    private IEnumerator ResetButton()
+    {
+        yield return new WaitForSeconds(0.2f); 
+        Release();
     }
 }

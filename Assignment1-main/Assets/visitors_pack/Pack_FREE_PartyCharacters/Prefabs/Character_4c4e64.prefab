@@ -977,7 +977,7 @@ MonoBehaviour:
   faceChange: {fileID: 59524387805099095}
   waitTime: 7
   eatTime: 4
-  moneySpawnPoint: {fileID: 5434801259234900673, guid: ed00b88cd65cc9c48a292227e84edc57, type: 3}
+  moneySpawnPoint: {fileID: 5987588557359659098, guid: f40ccedf4f32e574eb990c858f80ca9b, type: 3}
 --- !u!114 &59524387805099095
 MonoBehaviour:
   m_ObjectHideFlags: 0

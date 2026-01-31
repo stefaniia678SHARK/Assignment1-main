@@ -1,44 +1,76 @@
-/*using UnityEngine;
+using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 
 public class ChooseControllers : MonoBehaviour
 {
-    public GameObject planeA;
-    public GameObject planeB;
+    public SwitchModes switchModes;
+    public GameObject startMenuUI;
 
-    public TMP_Text textGood;
-    public TMP_Text textToShow;
-    public TMP_Text textToHide;
+    public TMP_Text instructionText;
+    public TMP_Text startText;
+    public TMP_Text option1Text;
+    public TMP_Text option2Text;
 
-    public Camera cam;          // assign your main camera in the Inspector
-    public LayerMask clickMask; // set to the layer(s) your planes are on
+    public GameObject Plane1;
+    public GameObject Plane2;
+    public GameObject Portal;
+
+    public MonoBehaviour desktopMovement;
+
+    private bool hasChosen = false;
+
+    void Start()
+    {
+        desktopMovement.enabled = false; // lock movement
+        Portal.SetActive(false);
+    }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+        if (hasChosen) return;
 
-            if (Physics.Raycast(ray, out hit, 1000f, clickMask))
-            {
-                // If you only care that you clicked *any* plane, just switch
-                SwitchPlanes();
-            }
+        if (Keyboard.current.digit1Key.wasPressedThisFrame)
+        {
+            ChooseDesktop();
+        }
+        else if (Keyboard.current.digit2Key.wasPressedThisFrame)
+        {
+            ChooseVR();
         }
     }
 
-    void SwitchPlanes()
+    void ChooseDesktop()
     {
-        bool aIsActive = planeA.activeSelf;
+        hasChosen = true;
+        switchModes.waitForChoice = false;
+        switchModes.SetDesktopMode(true);
+        option1Text.gameObject.SetActive(true);
+        StartGame();
+    }
 
-        planeA.SetActive(!aIsActive);
-        planeB.SetActive(aIsActive);
+    void ChooseVR()
+    {
+        hasChosen = true;
+        switchModes.waitForChoice = false;
+        switchModes.SetDesktopMode(false);
+        option2Text.gameObject.SetActive(true);
+        StartGame();
+    }
 
-        textToShow.gameObject.SetActive(true);
-        textToHide.gameObject.SetActive(false);
-        textGood.gameObject.SetActive(true);
+    void StartGame()
+    {
+        instructionText.gameObject.SetActive(false);
+        startText.gameObject.SetActive(true);
+
+        Portal.gameObject.SetActive(true);
+
+        Plane1.gameObject.SetActive(false);
+        Plane2.gameObject.SetActive(false);
+
+        Debug.Log("Game Started");
     }
 }
 
-*/
