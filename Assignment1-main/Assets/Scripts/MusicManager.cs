@@ -14,6 +14,11 @@ public class MusicManager : MonoBehaviour
     public static MusicManager instance;
     public AudioClip[] audioClips;
     public AudioSource[] audioSources;
+
+    public AudioClip backgroundMusic;
+    private AudioSource bgSource; //we will use this for background music
+    
+
     void Awake()
 
     {
@@ -28,6 +33,14 @@ public class MusicManager : MonoBehaviour
             Destroy(gameObject);
             return; // Important: stop executing if this is a duplicate
         }
+
+        //setting background music
+        bgSource = gameObject.AddComponent<AudioSource>();
+        bgSource.clip = backgroundMusic;
+        bgSource.loop = true;
+        bgSource.playOnAwake = true;
+        bgSource.volume = 0.5f;
+        bgSource.Play();
     }
     void Start()
     {
