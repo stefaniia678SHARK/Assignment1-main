@@ -76,6 +76,7 @@ public class Visitor : MonoBehaviour
 
     }
 
+    //seeing which visitor is currrent to that table
     public void OnBreadPlaced()
     {
         if (isEating || isLeaving)
@@ -113,7 +114,8 @@ public class Visitor : MonoBehaviour
 
         isLeaving = true;
 
-        assignedTable.ClearTable();
+        assignedTable.ClearTable(); //calling function from table script - just reseting values
+                                    //so visitors will know this table if free now
 
         isWaiting = false;
         isEating = false;

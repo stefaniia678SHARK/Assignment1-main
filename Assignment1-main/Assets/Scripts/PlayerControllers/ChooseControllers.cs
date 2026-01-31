@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.Events;
+using System.Collections;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 
 public class ChooseControllers : MonoBehaviour
 {
+    //script detoicasted to choose controllers at the beginning og the game
+
     public SwitchModes switchModes;
     public GameObject startMenuUI;
 
@@ -13,6 +17,7 @@ public class ChooseControllers : MonoBehaviour
     public TMP_Text startText;
     public TMP_Text option1Text;
     public TMP_Text option2Text;
+    public TMP_Text lastone;
 
     public GameObject Plane1;
     public GameObject Plane2;
@@ -31,6 +36,8 @@ public class ChooseControllers : MonoBehaviour
     void Update()
     {
         if (hasChosen) return;
+
+        // choosing by pressing 1 or 2
 
         if (Keyboard.current.digit1Key.wasPressedThisFrame)
         {
@@ -65,12 +72,21 @@ public class ChooseControllers : MonoBehaviour
         instructionText.gameObject.SetActive(false);
         startText.gameObject.SetActive(true);
 
-        Portal.gameObject.SetActive(true);
-
         Plane1.gameObject.SetActive(false);
         Plane2.gameObject.SetActive(false);
 
+        StartCoroutine(BeforeGame());
+
         Debug.Log("Game Started");
+    }
+
+    IEnumerator BeforeGame()
+    {
+        yield return new WaitForSeconds(5f);
+
+        startText.gameObject.SetActive(false);
+        Portal.gameObject.SetActive(true);
+        lastone.gameObject.SetActive(true);
     }
 }
 

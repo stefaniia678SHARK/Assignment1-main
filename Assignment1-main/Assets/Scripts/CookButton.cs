@@ -25,6 +25,7 @@ public class CookButton : MonoBehaviour
     public float cookTime = 5f;
 
     //for button events
+
     public UnityEvent onPress;
     public UnityEvent onRelease;
 
@@ -94,7 +95,7 @@ public class CookButton : MonoBehaviour
 
     }
 
-    // Fro desktop mode button press
+    // For desktop mode button press
     // In PlayerInteraction script, we call
     // this Press() method when the player
     // interacts with the button in desktop mode

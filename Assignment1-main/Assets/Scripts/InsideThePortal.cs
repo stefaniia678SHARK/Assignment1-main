@@ -19,6 +19,6 @@ public class InsideThePortal : MonoBehaviour
     {
         // Animate shader here
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainScene");
     }
 }

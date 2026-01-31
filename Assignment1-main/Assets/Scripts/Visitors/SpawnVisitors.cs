@@ -62,7 +62,7 @@ public class SpawnVisitors : MonoBehaviour
         freeTable.currentVisitor = visitor;
         freeTable.isOccupied = true;
 
-        int visitorCount = FindObjectsOfType<Visitor>().Length;
+        int visitorCount = FindObjectsByType<Visitor>(FindObjectsSortMode.None).Length;  
 
         //adding sound of cafe voices if there are 2 or more visitors
 

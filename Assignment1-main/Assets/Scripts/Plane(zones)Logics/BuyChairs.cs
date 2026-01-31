@@ -86,7 +86,6 @@ public class BuyChairs : MonoBehaviour
         //when you will put only 100$ to the plane with 300$ required amount
         //-> texture 200$ will appear
 
-
         int remainingMoney = (int)(requiredAmount - currentMoney);
 
         if (remainingMoney == 2)
